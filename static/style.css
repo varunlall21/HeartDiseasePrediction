@@ -1,0 +1,190 @@
+/* General Body Styling */
+body {
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif; /* Clean, readable font */
+    margin: 0;
+    background-color: #f8f8f8; /* Very light gray background */
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333; /* Dark gray text */
+    line-height: 1.6;
+    box-sizing: border-box;
+}
+
+/* Container Styling */
+.container {
+    background-color: #ffffff; /* White background for content */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Very subtle shadow */
+    max-width: 700px; /* Adjust max-width as needed */
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+    border: 1px solid #eee; /* Light border */
+    /* Added for centering content */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Heading Styling */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.intro-text {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+    font-size: 1.05em;
+    line-height: 1.5;
+}
+
+/* Form Styling */
+form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 30px; /* Spacing between form groups */
+}
+
+/* Form Group Wrapper */
+.form-group {
+    margin-bottom: 0;
+    text-align: center; /* Center content within the form group */
+}
+
+/* Label Styling */
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+    font-size: 1em;
+}
+
+.attribute-info {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Input and Select Styling */
+input[type="number"],
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus,
+select:focus {
+    border-color: #888;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+select {
+     /* Remove default arrow and add a custom one if desired (more complex) */
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     /* Example of a simple custom arrow (requires base64 image or SVG) */
+     /* background-image: url('...'); */
+     background-repeat: no-repeat;
+     background-position: right 10px center;
+     background-size: 12px auto;
+}
+
+/* Button Styling */
+button[type="submit"] {
+    background-color: #007bff; /* A simple blue accent */
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out;
+    grid-column: span 2; /* Make the button span across both columns on wider screens */
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Prediction Result Styling */
+#prediction-result {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f0f0f0; /* Light gray background */
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+    font-size: 1.2em;
+    word-break: break-word;
+    display: none; /* Initially hidden */
+    animation: fadeIn 0.8s ease-in-out; /* Fade-in animation */
+}
+
+/* Tips and Suggestions Styling */
+.tips-section {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9; /* Very light gray */
+    color: #555;
+    font-size: 1em;
+    line-height: 1.5;
+    display: none; /* Initially hidden */
+    animation: fadeIn 0.8s ease-in-out; /* Fade-in animation */
+}
+
+.tips-section h2 {
+    color: #333;
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.tips-section ul {
+    list-style: disc; /* Standard bullet points */
+    padding-left: 20px;
+}
+
+.tips-section li {
+    margin-bottom: 10px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive adjustments for the button */
+@media (max-width: 600px) { /* Adjust breakpoint as needed */
+    button[type="submit"] {
+        grid-column: span 1; /* Button spans only one column on small screens */
+    }
+}

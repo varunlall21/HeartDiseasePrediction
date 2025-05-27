@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Heart Disease Prediction</h1>
+
+        <p class="intro-text">
+            This tool attempts to predict the probability of heart disease based on the health information you provide.
+            Please fill out the form below with your relevant data. 
+            <br>
+            Keep in mind to always consult with a healthcare professional for any health concerns.
+        </p>
+
+        <form id="prediction-form">
+            <div class="form-columns">
+                <div class="column">
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <span class="attribute-info">(Your age in years. Typical range: 29-77)</span>
+                        <input type="number" id="age" name="age" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sex">Biological Sex:</label>
+                        <span class="attribute-info">(Your biological sex as 1 for male, 0 for female)</span>
+                        <select id="sex" name="sex" required>
+                            <option value="">-- Select --</option>
+                            <option value="0">Female</option>
+                            <option value="1">Male</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cp">Chest Pain Type:</label>
+                        <span class="attribute-info">(Type of chest pain experienced. Ask your doctor if unsure.)</span>
+                        <select id="cp" name="cp" required>
+                            <option value="">-- Select --</option>
+ <option value="0">Typical Angina</option>
+ <option value="1">Atypical Angina</option>
+ <option value="2">Non-anginal Pain</option>
+ <option value="3">Asymptomatic</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="trestbps">Resting Blood Pressure:</label>
+                        <span class="attribute-info">(Your resting blood pressure in mm Hg. Typical range: 94-200)</span>
+                        <input type="number" id="trestbps" name="trestbps" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="chol">Cholesterol:</label>
+                        <span class="attribute-info">(Your serum cholesterol level in mg/dl. Typical range: 126-564)</span>
+                        <input type="number" id="chol" name="chol" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fbs">Fasting Blood Sugar > 120 mg/dl:</label>
+                        <span class="attribute-info">(Is your fasting blood sugar greater than 120 mg/dl? (True/False))</span>
+                        <select id="fbs" name="fbs" required>
+                            <option value="">-- Select --</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="restecg">Resting Electrocardiographic Results:</label>
+                        <span class="attribute-info">(Results from a resting ECG test. Consult your report.)</span>
+                        <select id="restecg" name="restecg" required>
+                            <option value="">-- Select --</option>
+                            <option value="0">Normal</option>
+                            <option value="1">ST-T wave abnormality</option>
+                            <option value="2">Left ventricular hypertrophy</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="form-group">
+                        <label for="thalach">Maximum Heart Rate Achieved:</label>
+                        <span class="attribute-info">(The highest heart rate reached during exercise testing. Typical range: 71-202)</span>
+                        <input type="number" id="thalach" name="thalach" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exang">Exercise Induced Angina:</label>
+                        <span class="attribute-info">(Do you experience chest pain during exercise? (Yes/No))</span>
+                        <select id="exang" name="exang" required>
+                            <option value="">-- Select --</option>
+                            <option value="0">None</option>
+                            <option value="1">Present</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="oldpeak">ST depression induced by exercise relative to rest:</label>
+                        <span class="attribute-info">(A value measured during exercise testing. Typical range: 0.0-6.2)</span>
+                        <input type="number" id="oldpeak" name="oldpeak" step="any" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="slope">Slope of the peak exercise ST segment:</label>
+                        <span class="attribute-info">(The slope of a segment on the exercise ECG. Consult your report.)</span>
+                        <select id="slope" name="slope" required>
+                            <option value="">-- Select --</option>
+ <option value="0">Upsloping</option>
+ <option value="1">Flat</option>
+ <option value="2">Downsloping</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ca">Number of major vessels (0-3) colored by fluoroscopy:</label>
+                        <span class="attribute-info">(Number of major blood vessels seen in a medical imaging test. Typically 0 to 3.)</span>
+                        <select id="ca" name="ca" required>
+                            <option value="">-- Select --</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4 (Often indicates a special case or error)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="thal">Thalassemia:</label>
+                        <span class="attribute-info">(A blood disorder. Values can vary depending on the test and dataset.)</span>
+                        <select id="thal" name="thal" required>
+ <option value="">-- Select --</option>
+ <option value="0">Unknown/Normal</option>
+ <option value="1">Fixed defect (thal)</option>
+ <option value="2">Reversible defect (thal)</option>
+                    <option value="3">Reversible defect</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        <div id="prediction-result" style="display: none;"></div>
+
+        <div class="tips-section" style="display: none;">
+            <h2>General Tips and Suggestions</h2>
+            <ul></ul> <!-- This list will be populated by JavaScript -->
+            <p class="disclaimer">This information is for general knowledge and informational purposes only, and does not constitute medical advice. Always consult with a qualified healthcare professional for any health concerns or before making any decisions related to your health or treatment.</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
